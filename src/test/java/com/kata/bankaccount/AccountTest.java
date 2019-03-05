@@ -46,6 +46,6 @@ public class AccountTest {
         );
         account.deposit(firstTransactionAmount, LocalDate.now());
         account.withdraw(secondTransactionAmount, LocalDate.now());
-        assertThat(account.getHistory()).containsExactlyElementsOf(expectedHistory);
+        assertThat(account.getTransactions()).containsExactlyElementsOf(expectedHistory);
     }
 }

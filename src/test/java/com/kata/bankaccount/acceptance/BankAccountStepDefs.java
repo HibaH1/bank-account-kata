@@ -52,7 +52,7 @@ public class BankAccountStepDefs {
 
     @Then("^My history contains (\\d+) transactions$")
     public void myHistoryContainsTransactions(int historySize) {
-        assertThat(account.getHistory().size()).isEqualTo(historySize);
+        assertThat(account.getTransactions().size()).isEqualTo(historySize);
     }
 
     @Then("^My history is :$")
@@ -60,6 +60,6 @@ public class BankAccountStepDefs {
         List<Transaction> expectedTransactions = transactions.stream()
                 .map(TransactionForTest::toTransaction)
                 .collect(Collectors.toList());
-        assertThat(account.getHistory()).isEqualTo(expectedTransactions);
+        assertThat(account.getTransactions()).isEqualTo(expectedTransactions);
     }
 }
