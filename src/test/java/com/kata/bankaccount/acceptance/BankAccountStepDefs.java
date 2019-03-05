@@ -25,6 +25,11 @@ public class BankAccountStepDefs {
         account.deposit(amount);
     }
 
+    @When("^I withdraw (\\d+) euros from this account$")
+    public void iWithdrawEurosFromThisAccount(BigDecimal amount) {
+        account.withdraw(amount);
+    }
+
     @Then("^The balance in this account is (\\d+) euros$")
     public void theBalanceInThisAccountShouldBeEuros(BigDecimal amount) {
         assertThat(account.getBalance()).isEqualTo(amount);
