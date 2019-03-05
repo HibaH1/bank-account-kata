@@ -1,6 +1,7 @@
 package com.kata.bankaccount.acceptance;
 
 import com.kata.bankaccount.Account;
+import com.kata.bankaccount.Amount;
 import com.kata.bankaccount.Client;
 import com.kata.bankaccount.Transaction;
 import cucumber.api.java.en.Given;
@@ -26,27 +27,27 @@ public class BankAccountStepDefs {
 
     @When("^I deposit (\\d+) euros in this account$")
     public void iDepositEurosInThisAccount(BigDecimal amount) {
-        account.deposit(amount, LocalDate.now());
+        account.deposit(new Amount(amount), LocalDate.now());
     }
 
     @When("^I withdraw (\\d+) euros from this account$")
     public void iWithdrawEurosFromThisAccount(BigDecimal amount) {
-        account.withdraw(amount, LocalDate.now());
+        account.withdraw(new Amount(amount), LocalDate.now());
     }
 
     @When("^I had deposited (\\d+) euros in this account on (.*)$")
     public void iDepositEurosInThisAccountOn(BigDecimal amount, String date) {
-        account.deposit(amount, LocalDate.parse(date));
+        account.deposit(new Amount(amount), LocalDate.parse(date));
     }
 
     @When("^I had withdrawn (\\d+) euros from this account on (.*)$")
     public void iWithdrawEurosFromThisAccountOn(BigDecimal amount, String date) {
-        account.withdraw(amount, LocalDate.parse(date));
+        account.withdraw(new Amount(amount), LocalDate.parse(date));
     }
 
     @Then("^The balance in this account is (\\d+) euros$")
     public void theBalanceInThisAccountShouldBeEuros(BigDecimal amount) {
-        assertThat(account.getBalance()).isEqualTo(amount);
+        assertThat(account.getBalance()).isEqualTo(new Amount(amount));
     }
 
     @Then("^My history contains (\\d+) transactions$")

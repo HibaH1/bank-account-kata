@@ -1,33 +1,37 @@
 package com.kata.bankaccount;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.kata.bankaccount.Operation.DEPOSIT;
+import static com.kata.bankaccount.Operation.WITHDRAWAL;
 import static java.math.BigDecimal.ZERO;
 
 public class Account {
 
-    private BigDecimal balance = ZERO;
+    private Amount balance;
     private Client client;
     private List<Transaction> history = new ArrayList<>();
 
     public Account(Client client) {
+        this.balance = new Amount(ZERO);
         this.client = client;
     }
 
-    public void deposit(BigDecimal amount, LocalDate localDate) {
+    public void deposit(Amount amount, LocalDate localDate) {
         balance = balance.add(amount);
-        history.add(new Transaction("DEPOSIT", localDate, amount, balance));
+        Transaction e = new Transaction(DEPOSIT, localDate, amount, balance);
+        history.add(e);
     }
 
-    public void withdraw(BigDecimal amount, LocalDate localDate) {
+    public void withdraw(Amount amount, LocalDate localDate) {
         balance = balance.subtract(amount);
-        history.add(new Transaction("WITHDRAWAL", localDate, amount, balance));
+        Transaction e = new Transaction(WITHDRAWAL, localDate, amount, balance);
+        history.add(e);
     }
 
-    public BigDecimal getBalance() {
+    public Amount getBalance() {
         return balance;
     }
 
