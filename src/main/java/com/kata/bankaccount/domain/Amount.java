@@ -1,5 +1,7 @@
 package com.kata.bankaccount.domain;
 
+import com.kata.bankaccount.domain.exceptions.NegativeAmountException;
+
 import java.math.BigDecimal;
 import java.util.Currency;
 import java.util.Locale;
@@ -10,6 +12,8 @@ public class Amount {
     private final Currency currency;
 
     public Amount(BigDecimal value) {
+        if (value.compareTo(BigDecimal.ZERO) < 0)
+            throw new NegativeAmountException();
         this.value = value;
         this.currency = Currency.getInstance(Locale.FRANCE);
     }
