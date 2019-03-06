@@ -1,4 +1,4 @@
-package com.kata.bankaccount;
+package com.kata.bankaccount.domain;
 
 public class Client {
     private final String id;

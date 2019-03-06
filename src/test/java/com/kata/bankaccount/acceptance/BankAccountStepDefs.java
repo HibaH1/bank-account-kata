@@ -1,9 +1,9 @@
 package com.kata.bankaccount.acceptance;
 
-import com.kata.bankaccount.Account;
-import com.kata.bankaccount.Amount;
-import com.kata.bankaccount.Client;
-import com.kata.bankaccount.Transaction;
+import com.kata.bankaccount.domain.Account;
+import com.kata.bankaccount.domain.Amount;
+import com.kata.bankaccount.domain.Client;
+import com.kata.bankaccount.domain.Transaction;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;

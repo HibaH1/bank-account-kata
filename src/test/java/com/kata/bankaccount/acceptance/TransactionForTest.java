@@ -1,8 +1,8 @@
 package com.kata.bankaccount.acceptance;
 
-import com.kata.bankaccount.Amount;
-import com.kata.bankaccount.Operation;
-import com.kata.bankaccount.Transaction;
+import com.kata.bankaccount.domain.Amount;
+import com.kata.bankaccount.domain.Operation;
+import com.kata.bankaccount.domain.Transaction;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

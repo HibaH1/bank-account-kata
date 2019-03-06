@@ -1,4 +1,4 @@
-package com.kata.bankaccount;
+package com.kata.bankaccount.domain;
 
 import java.math.BigDecimal;
 import java.util.Currency;

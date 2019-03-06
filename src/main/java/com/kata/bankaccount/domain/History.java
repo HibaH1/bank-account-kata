@@ -1,11 +1,11 @@
-package com.kata.bankaccount;
+package com.kata.bankaccount.domain;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.kata.bankaccount.Operation.DEPOSIT;
-import static com.kata.bankaccount.Operation.WITHDRAWAL;
+import static com.kata.bankaccount.domain.Operation.DEPOSIT;
+import static com.kata.bankaccount.domain.Operation.WITHDRAWAL;
 import static java.math.BigDecimal.ZERO;
 
 public class History {

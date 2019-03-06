@@ -1,4 +1,4 @@
-package com.kata.bankaccount;
+package com.kata.bankaccount.domain;
 
 import java.time.LocalDate;
 import java.util.List;

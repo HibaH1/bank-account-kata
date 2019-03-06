@@ -1,5 +1,9 @@
 package com.kata.bankaccount;
 
+import com.kata.bankaccount.domain.Account;
+import com.kata.bankaccount.domain.Amount;
+import com.kata.bankaccount.domain.Client;
+import com.kata.bankaccount.domain.Transaction;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -7,8 +11,8 @@ import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.kata.bankaccount.Operation.DEPOSIT;
-import static com.kata.bankaccount.Operation.WITHDRAWAL;
+import static com.kata.bankaccount.domain.Operation.DEPOSIT;
+import static com.kata.bankaccount.domain.Operation.WITHDRAWAL;
 import static java.math.BigDecimal.valueOf;
 import static org.assertj.core.api.Assertions.assertThat;
 
