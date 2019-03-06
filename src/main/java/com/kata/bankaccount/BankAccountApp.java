@@ -1,8 +1,9 @@
-package com.kata.bankaccount.app;
+package com.kata.bankaccount;
 
 import com.kata.bankaccount.domain.Account;
 import com.kata.bankaccount.domain.Amount;
 import com.kata.bankaccount.domain.Client;
+import com.kata.bankaccount.infrastructure.ConsoleStatementPrinter;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -10,7 +11,7 @@ import java.time.LocalDate;
 public class BankAccountApp {
     public static void main(String[] args) {
         Client client = new Client("181920", "First Customer");
-        Account account = new Account(client);
+        Account account = new Account(client, new ConsoleStatementPrinter());
 
         account.deposit(new Amount(BigDecimal.valueOf(500)), LocalDate.of(2018, 11, 15));
         account.deposit(new Amount(BigDecimal.valueOf(1200)), LocalDate.of(2018, 12, 25));
