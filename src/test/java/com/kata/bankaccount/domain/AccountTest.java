@@ -1,6 +1,10 @@
-package com.kata.bankaccount;
+package com.kata.bankaccount.domain;
 
-import com.kata.bankaccount.domain.*;
+import com.kata.bankaccount.domain.account.Account;
+import com.kata.bankaccount.domain.account.Amount;
+import com.kata.bankaccount.domain.account.Operation;
+import com.kata.bankaccount.domain.account.Transaction;
+import com.kata.bankaccount.domain.client.Client;
 import com.kata.bankaccount.domain.exceptions.NegativeAmountException;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,8 +14,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static com.kata.bankaccount.domain.Operation.DEPOSIT;
-import static com.kata.bankaccount.domain.Operation.WITHDRAWAL;
+import static com.kata.bankaccount.domain.account.Operation.DEPOSIT;
+import static com.kata.bankaccount.domain.account.Operation.WITHDRAWAL;
 import static java.math.BigDecimal.valueOf;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;

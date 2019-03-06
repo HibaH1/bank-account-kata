@@ -1,6 +1,6 @@
-package com.kata.bankaccount;
+package com.kata.bankaccount.domain;
 
-import com.kata.bankaccount.domain.Transaction;
+import com.kata.bankaccount.domain.account.Transaction;
 import java.util.List;
 
 public interface StatementPrinter {

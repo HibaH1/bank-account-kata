@@ -1,8 +1,8 @@
 package com.kata.bankaccount;
 
-import com.kata.bankaccount.domain.Account;
-import com.kata.bankaccount.domain.Amount;
-import com.kata.bankaccount.domain.Client;
+import com.kata.bankaccount.domain.account.Account;
+import com.kata.bankaccount.domain.account.Amount;
+import com.kata.bankaccount.domain.client.Client;
 import com.kata.bankaccount.infrastructure.ConsoleStatementPrinter;
 
 import java.math.BigDecimal;

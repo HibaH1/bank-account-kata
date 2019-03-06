@@ -1,4 +1,4 @@
-package com.kata.bankaccount.domain;
+package com.kata.bankaccount.domain.account;
 
 import com.kata.bankaccount.domain.exceptions.NegativeAmountException;
 

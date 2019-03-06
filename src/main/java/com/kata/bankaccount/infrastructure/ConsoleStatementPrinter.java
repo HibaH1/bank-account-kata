@@ -1,7 +1,7 @@
 package com.kata.bankaccount.infrastructure;
 
-import com.kata.bankaccount.StatementPrinter;
-import com.kata.bankaccount.domain.Transaction;
+import com.kata.bankaccount.domain.StatementPrinter;
+import com.kata.bankaccount.domain.account.Transaction;
 
 import java.util.List;
 

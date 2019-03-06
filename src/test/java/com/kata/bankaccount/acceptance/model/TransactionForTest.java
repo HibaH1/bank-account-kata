@@ -1,8 +1,8 @@
-package com.kata.bankaccount.acceptance;
+package com.kata.bankaccount.acceptance.model;
 
-import com.kata.bankaccount.domain.Amount;
-import com.kata.bankaccount.domain.Operation;
-import com.kata.bankaccount.domain.Transaction;
+import com.kata.bankaccount.domain.account.Amount;
+import com.kata.bankaccount.domain.account.Operation;
+import com.kata.bankaccount.domain.account.Transaction;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -20,7 +20,7 @@ public class TransactionForTest {
         this.balance = balance;
     }
 
-    Transaction toTransaction() {
+    public Transaction toTransaction() {
         return new Transaction(this.operation, LocalDate.parse(this.date), new Amount(this.amount), new Amount(this.balance));
     }
 

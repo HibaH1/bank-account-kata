@@ -1,6 +1,7 @@
-package com.kata.bankaccount.domain;
+package com.kata.bankaccount.domain.account;
 
-import com.kata.bankaccount.StatementPrinter;
+import com.kata.bankaccount.domain.client.Client;
+import com.kata.bankaccount.domain.StatementPrinter;
 
 import java.time.LocalDate;
 import java.util.List;
