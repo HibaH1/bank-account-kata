@@ -16,6 +16,22 @@ public class Transaction {
         this.balance = balance;
     }
 
+    public Operation getOperation() {
+        return operation;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public Amount getAmount() {
+        return amount;
+    }
+
+    public Amount getBalance() {
+        return balance;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -1,15 +1,13 @@
 package com.kata.bankaccount;
 
-import com.kata.bankaccount.domain.Account;
-import com.kata.bankaccount.domain.Amount;
-import com.kata.bankaccount.domain.Client;
-import com.kata.bankaccount.domain.Transaction;
+import com.kata.bankaccount.domain.*;
 import com.kata.bankaccount.domain.exceptions.NegativeAmountException;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static com.kata.bankaccount.domain.Operation.DEPOSIT;
@@ -17,15 +15,19 @@ import static com.kata.bankaccount.domain.Operation.WITHDRAWAL;
 import static java.math.BigDecimal.valueOf;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 public class AccountTest {
 
     private Account account;
+    private StatementPrinter statementPrinter;
 
     @Before
     public void setUp() {
+        statementPrinter = mock(StatementPrinter.class);
         Client client = new Client("123456", "clientName");
-        account = new Account(client);
+        account = new Account(client, statementPrinter);
     }
 
     @Test
@@ -60,5 +62,20 @@ public class AccountTest {
         assertThatThrownBy(() -> new Amount(valueOf(-500)))
                 .isInstanceOf(NegativeAmountException.class)
                 .hasMessage("Business Error: Negative amounts are not allowed.");
+    }
+
+    @Test
+    public void shouldPrintStatement() {
+        List<Transaction> transactions = Collections.singletonList(generateSampleTransaction());
+        account.deposit(new Amount(valueOf(500)), LocalDate.now());
+        account.printStatement();
+        verify(statementPrinter).print(transactions);
+    }
+
+    private Transaction generateSampleTransaction() {
+        return new Transaction(Operation.DEPOSIT,
+                LocalDate.now(),
+                new Amount(valueOf(500)),
+                new Amount(valueOf(500)));
     }
 }
