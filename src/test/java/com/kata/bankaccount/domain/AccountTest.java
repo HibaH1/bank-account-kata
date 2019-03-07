@@ -69,7 +69,7 @@ public class AccountTest {
     }
 
     @Test
-    public void shouldPrintStatement() {
+    public void should_print_statement() {
         List<Transaction> transactions = Collections.singletonList(generateSampleTransaction());
         account.deposit(new Amount(valueOf(500)), LocalDate.now());
         account.printStatement();

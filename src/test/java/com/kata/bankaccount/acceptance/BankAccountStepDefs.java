@@ -22,43 +22,43 @@ public class BankAccountStepDefs {
     private Account account;
 
     @Given("^My account$")
-    public void myAccount() {
+    public void my_account() {
         Client client = new Client("123456", "clientName");
         account = new Account(client, new ConsoleStatementPrinter());
     }
 
     @When("^I deposit (\\d+) euros in this account$")
-    public void iDepositEurosInThisAccount(BigDecimal amount) {
+    public void i_deposit_euros_in_this_account(BigDecimal amount) {
         account.deposit(new Amount(amount), LocalDate.now());
     }
 
     @When("^I withdraw (\\d+) euros from this account$")
-    public void iWithdrawEurosFromThisAccount(BigDecimal amount) {
+    public void i_withdraw_euros_from_this_account(BigDecimal amount) {
         account.withdraw(new Amount(amount), LocalDate.now());
     }
 
     @When("^I had deposited (\\d+) euros in this account on (.*)$")
-    public void iDepositEurosInThisAccountOn(BigDecimal amount, String date) {
+    public void i_deposit_euros_in_this_account_on(BigDecimal amount, String date) {
         account.deposit(new Amount(amount), LocalDate.parse(date));
     }
 
     @When("^I had withdrawn (\\d+) euros from this account on (.*)$")
-    public void iWithdrawEurosFromThisAccountOn(BigDecimal amount, String date) {
+    public void i_withdraw_euros_from_this_account_on(BigDecimal amount, String date) {
         account.withdraw(new Amount(amount), LocalDate.parse(date));
     }
 
     @Then("^The balance in this account is (\\d+) euros$")
-    public void theBalanceInThisAccountShouldBeEuros(BigDecimal amount) {
+    public void the_balance_in_this_account_should_be_euros(BigDecimal amount) {
         assertThat(account.getBalance()).isEqualTo(new Amount(amount));
     }
 
     @Then("^My history contains (\\d+) transactions$")
-    public void myHistoryContainsTransactions(int historySize) {
+    public void my_history_contains_transactions(int historySize) {
         assertThat(account.getTransactions().size()).isEqualTo(historySize);
     }
 
     @Then("^My history is :$")
-    public void myHistoryIs(List<TransactionForTest> transactions) {
+    public void my_history_is(List<TransactionForTest> transactions) {
         List<Transaction> expectedTransactions = transactions.stream()
                 .map(TransactionForTest::toTransaction)
                 .collect(Collectors.toList());
