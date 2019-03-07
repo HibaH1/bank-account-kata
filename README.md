@@ -21,3 +21,7 @@ Think of your personal bank account experience When in doubt, go for the simples
 **In order to** check my operations  
 **As a** bank client  
 **I want to** see the history (operation, date, amount, balance)  of my operations  
+
+# Launch project
+- To compile, package, download dependencies, run the tests, install the project : **_mvn clean install_**
+- To run tests only : **_mvn test_**
