@@ -30,34 +30,40 @@ public class AccountTest {
     @Before
     public void setUp() {
         statementPrinter = mock(StatementPrinter.class);
-        Client client = new Client("123456", "clientName");
+        final Client client = new Client("123456", "clientName");
         account = new Account(client, statementPrinter);
     }
 
     @Test
     public void should_increase_balance_when_make_deposit() {
-        Amount amount = new Amount(valueOf(200));
+        final Amount amount = new Amount(valueOf(200));
+
         account.deposit(amount, LocalDate.now());
+
         assertThat(account.getBalance()).isEqualTo(amount);
     }
 
     @Test
     public void should_decrease_balance_when_make_withdrawal() {
         account.deposit(new Amount(valueOf(300)), LocalDate.now());
+
         account.withdraw(new Amount(valueOf(200)), LocalDate.now());
+
         assertThat(account.getBalance()).isEqualTo(new Amount(valueOf(100)));
     }
 
     @Test
     public void should_render_history_of_all_transactions() {
-        Amount firstTransactionAmount = new Amount(valueOf(500));
-        Amount secondTransactionAmount = new Amount(valueOf(200));
-        List<Transaction> expectedHistory = Arrays.asList(
+        final Amount firstTransactionAmount = new Amount(valueOf(500));
+        final Amount secondTransactionAmount = new Amount(valueOf(200));
+        final List<Transaction> expectedHistory = Arrays.asList(
                 new Transaction(DEPOSIT, LocalDate.now(), firstTransactionAmount, new Amount(valueOf(500))),
                 new Transaction(WITHDRAWAL, LocalDate.now(), secondTransactionAmount, new Amount(valueOf(300)))
         );
+
         account.deposit(firstTransactionAmount, LocalDate.now());
         account.withdraw(secondTransactionAmount, LocalDate.now());
+
         assertThat(account.getTransactions()).containsExactlyElementsOf(expectedHistory);
     }
 
@@ -70,9 +76,11 @@ public class AccountTest {
 
     @Test
     public void should_print_statement() {
-        List<Transaction> transactions = Collections.singletonList(generateSampleTransaction());
+        final List<Transaction> transactions = Collections.singletonList(generateSampleTransaction());
         account.deposit(new Amount(valueOf(500)), LocalDate.now());
+
         account.printStatement();
+
         verify(statementPrinter).print(transactions);
     }
 
